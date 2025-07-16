@@ -1,4 +1,4 @@
-import { LinkPrecedence } from '../prisma';
+import { LinkPrecedence } from '../../prisma';
 import { ContactResponse } from '../types';
 import { db } from './clients';
 
@@ -43,7 +43,7 @@ export const getMatchingContacts = async (email: string | null, phoneNumber: num
         }
     });
 
-    contactsData.forEach(c => {
+    contactsData.forEach((c: { linkPrecedence: LinkPrecedence, id: number, phoneNumber?: string | null, email?: string | null }) => {
         if (c.linkPrecedence == LinkPrecedence.Primary) {
             contact.primaryContactId = c.id;
         } else {

@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import { IdentifyScheema } from './lib/zod';
 import { db } from './lib/clients';
-import { LinkPrecedence } from './prisma';
+import { LinkPrecedence } from '../prisma';
 import { getMatchingContacts } from './lib/helpers';
 import { ZodError } from 'zod';
 
@@ -64,7 +64,7 @@ app.post('/identify', async (req: Request, res: Response) => {
                         }
                     });
                 }
-                const contactIds = contacts.map(c => c.id);
+                const contactIds = contacts.map((c: { id: number }) => c.id);
                 contactIds.shift(); // we're removing first one, cause it'll be primary
                 await db.contact.updateMany({
                     where: {

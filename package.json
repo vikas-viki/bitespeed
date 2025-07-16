@@ -6,7 +6,9 @@
   "type": "commonjs",
   "scripts": {
     "lint": "eslint . --ext .ts --no-warn-ignored",
-    "dev": "ts-node src/index.ts"
+    "dev": "ts-node src/index.ts",
+    "build": "tsc -b",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
