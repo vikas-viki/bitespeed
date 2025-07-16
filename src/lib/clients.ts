@@ -1,4 +1,4 @@
-import { PrismaClient } from "../prisma";
+import { PrismaClient } from '../prisma';
 
 const globalForPrisma = global as unknown as { prisma: PrismaClient };
 
@@ -8,6 +8,6 @@ const getPrisma = () => {
     }
 
     return globalForPrisma.prisma;
-}
+};
 
 export const db = getPrisma();

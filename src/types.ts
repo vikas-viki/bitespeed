@@ -1,5 +1,5 @@
 export type ContactResponse = {
-    primaryContatctId: number,
+    primaryContactId: number,
     emails: string[],
     phoneNumbers: string[],
     secondaryContactIds: number[]
